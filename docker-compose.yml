@@ -1,0 +1,37 @@
+version: '3'
+services:
+  www:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./public:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
+
+  db:
+    image: mariadb:latest
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mp_template
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - ./mysqldata:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+    
