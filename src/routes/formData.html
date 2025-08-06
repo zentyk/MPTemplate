@@ -9,23 +9,24 @@
 <h1>Form Data</h1>
 <form action="../api/formAPI.php" method="post">
     <div>
-        Username:
+        <label for="name">Name:</label>
         <input type="text" id="name" name="name" required placeholder="Enter your name">
     </div>
 
     <div>
-        Password: <input type="password" id="password" name="password" required placeholder="Enter your password">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Enter your password">
     </div>
 
     <div>
-        Role:
+        <label for="role"></label>
         <input type="radio" name="role" value="b"> buyer
         <input type="radio" name="role" value="s"> seller
         <br><br>
     </div>
 
     <div>
-        Color:
+        <label for="color">Color:</label>
         <select name="color">
             <option value="" SELECTED>Please Select</option>
             <option value="#f00">Red</option>
@@ -35,7 +36,7 @@
     </div>
 
     <div>
-        languages spoken:
+        <label for="languages">languages spoken:</label>
         <select name="languages[]" multiple>
             <option value="en">English</option>
             <option value="fr">French</option>
@@ -44,7 +45,7 @@
     </div>
 
     <div>
-        Comments:
+        <label for="comments">Comments</label>
         <textarea name="comments" placeholder="Enter your comments"></textarea>
     </div>
 
