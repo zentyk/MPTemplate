@@ -1,17 +1,15 @@
-version: '3'
 services:
-  www:
+  mpt:
     build: .
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./public:/var/www/html
+      - ./src:/var/www/html
     depends_on:
       - db
-    environment:
-      - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
-
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   db:
     image: mariadb:latest
     expose:
@@ -34,4 +32,3 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: root
-    
