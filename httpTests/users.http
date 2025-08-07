@@ -1,0 +1,7 @@
+### GET request to example server
+GET {{host}}/mysql.php
+Content-Type: application/json
+
+{
+  "query": "Z"
+}
