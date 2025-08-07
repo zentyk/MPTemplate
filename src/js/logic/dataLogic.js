@@ -7,10 +7,16 @@ export default class DataLogic {
 
     async getData(name) {
         try {
-            let task = await this.modelData.GetData(name)
-                .then(done => {
+            await this.modelData.GetData(name)
+                .then(function (e) {
+                    if(e !== 'ok') {
+                        throw new Error("Data retrieval failed");
+                    }
                     return this.modelData.model;
-                });
+                }).catch(error => {;
+                    console.error("Error in getData:", error);
+                    throw error;
+                })
         } catch (error) {
             console.error("Error fetching data:", error);
             throw error;

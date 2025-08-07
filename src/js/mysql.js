@@ -1,6 +1,7 @@
 import DataLogic from "./logic/dataLogic.js";
 
 let btn = document.getElementById('sendBtn');
+
 let dataLogic = new DataLogic();
 
 let response = document.getElementById('response');
