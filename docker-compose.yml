@@ -14,6 +14,9 @@ services:
     image: mariadb:latest
     expose:
       - 3306
+    #bind if you want to access the database from outside docker
+    ports:
+      - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mp_template
@@ -22,6 +25,7 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d
       - ./mysqldata:/var/lib/mysql
+  #I don't use it, but you can use it if you want to manage the database via a web interface
   phpmyadmin:
     image: phpmyadmin
     depends_on:
