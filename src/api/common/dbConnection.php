@@ -2,21 +2,28 @@
 
 namespace common;
 
+require_once 'connectionConfig.php';
+
 class dbConnection {
-    public $connection;
+    public \mysqli $connection;
     public $error;
 
     /**
      * @return \mysqli
      */
-    public function Connect($h,$u, $p,$db): \mysqli {
-       $this->connection = mysqli_connect($h, $u, $p, $db);
+    public function Connect(): bool {
+        $config = new ConnectionConfig();
+        $this->connection = mysqli_connect($config->host, $config->user, $config->password, $config->database);
         if ($this->connection->connect_error) {
             $this->error = $this->connection->connect_error;
+            return false;
         } else {
             $this->error = null;
+            return true;
         }
+    }
 
-        return $this->connection;
+    public function __destroy(): void {
+        $this->connection->close();
     }
 }

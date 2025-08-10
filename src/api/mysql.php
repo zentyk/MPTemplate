@@ -1,26 +1,46 @@
 <?php
-require_once 'common/dbConnection.php';
-use common\dbConnection;
+declare(strict_types=1);
 
-$conn = new dbConnection();
+header('Content-Type: application/json');
+ini_set('display_errors', '1');
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_WARNING & ~E_NOTICE);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $json_data = file_get_contents('php://input');
-    $data = json_decode($json_data);
+ob_start();
 
-    if (!$conn->Connect('db','user','password','mp_template')) {
-        die("Connection failed: " . $conn->error);
-    } else {
-        http_response_code(200);
-        echo json_encode([
-            'message' => 'Data received successfully',
+use logic\UserLogic;
+
+require_once 'logic/UserLogic.php';
+require_once 'common/JsonUtility.php';
+
+$userLogic = new UserLogic();
+$jsonUtility = new common\JsonUtility();
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    $jsonUtility->SendJson(400, ['error' => 'Invalid request method. Please use POST.']);
+}
+
+
+$raw = file_get_contents('php://input');
+$data = json_decode($raw);
+
+if(json_last_error() !== JSON_ERROR_NONE) {
+    $jsonUtility->SendJson(400, ['error' => 'Invalid JSON.']);
+}
+
+try {
+    $userName = $data->userName;
+    $registered = $userLogic->CreateUser($data->query);
+
+    if($registered) {
+        $jsonUtility->SendJson(200, [
             'body' => $data
         ]);
+    } else {
+        $jsonUtility->SendJson(500, [
+            'error' => 'Error creating user.'
+        ]);
     }
-
-} else {
-    http_response_code(400);
-    echo json_encode([
-        'error' => 'Invalid request method. Please use POST.'
-    ]);
+} catch (Throwable $e) {
+    error_log($e->getMessage());
+    $jsonUtility->SendJson(500, ['error' => 'Internal server error.']);
 }
