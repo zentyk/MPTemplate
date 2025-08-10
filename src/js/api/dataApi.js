@@ -14,11 +14,11 @@ export default class DataApi {
             }
             return response.json();
         })
-        .then(res=>{
-            return res.body;
+        .then(response=>{
+            return response.body;
         })
         .catch(error => {
-            return error;
+            throw error;
         });
 
         return res;
