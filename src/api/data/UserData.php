@@ -3,8 +3,7 @@
 namespace data;
 
 use common\dbConnection;
-
-require_once 'common/dbConnection.php';
+require_once __DIR__.'/../common/dbConnection.php';
 
 class UserData {
     private dbConnection $connection;
