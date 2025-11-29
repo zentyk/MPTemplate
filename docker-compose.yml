@@ -25,14 +25,3 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d
       - ./mysqldata:/var/lib/mysql
-  #I don't use it, but you can use it if you want to manage the database via a web interface
-  phpmyadmin:
-    image: phpmyadmin
-    depends_on:
-      - db
-    ports:
-      - "8080:80"
-    environment:
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: root

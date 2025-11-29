@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.siteqr\.me$
+RewriteRule ^/?$ "https\:\/\/siteqr\.me\/" [R=301,L]
+
+<Files "config.ini">
+    Require all denied
+</Files>
