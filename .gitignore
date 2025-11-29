@@ -1,3 +1,7 @@
 mysqldata/
 vendor/
+
+*.ini
+*.*.ini
 src/*.*.ini
+src/*.ini
