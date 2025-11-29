@@ -1,6 +1,6 @@
 mysqldata/
 vendor/
-db/
+
 src/*.ini
 src/config.dev.ini
 src/config.qa.ini
