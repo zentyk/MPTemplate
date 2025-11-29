@@ -3,8 +3,13 @@
 namespace common;
 
 class JsonUtility {
-
-   public function SendJson(int $status, $payload) : void {
+    /**
+     * Sends json
+     * @param int $status
+     * @param array $payload
+     * @return void
+     */
+    public function SendJson(int $status, $payload) : void {
        http_response_code($status);
        $json = json_encode($payload, JSON_UNESCAPED_UNICODE);
 

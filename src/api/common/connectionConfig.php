@@ -9,10 +9,10 @@ class connectionConfig {
     public $database;
 
     public function __construct() {
-        // 'db is the name of the host in Docker', use other configs in prod.
-        $this->host = 'db';
-        $this->user = 'user';
-        $this->password = 'password';
-        $this->database = 'mp_template';
+        $config = parse_ini_file(__DIR__.'../../../config.ini', true);
+        $this->host = $config['database']['hostname'];
+        $this->user = $config['database']['username'];
+        $this->password = $config['database']['password'];
+        $this->database = $config['database']['database'];
     }
 }

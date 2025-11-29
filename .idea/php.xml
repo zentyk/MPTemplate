@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="MessDetector">
-    <phpmd_settings>
-      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="e85977b5-6549-462a-89ae-9892c51b3ee9" timeout="30000" />
-    </phpmd_settings>
-  </component>
   <component name="MessDetectorOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
@@ -15,34 +10,60 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
-  <component name="PhpCodeSniffer">
-    <phpcs_settings>
-      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="e85977b5-6549-462a-89ae-9892c51b3ee9" timeout="30000" />
-    </phpcs_settings>
-  </component>
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/src/vendor/composer" />
+      <path value="$PROJECT_DIR$/src/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/src/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/src/vendor/staabm/side-effects-detector" />
+      <path value="$PROJECT_DIR$/src/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/src/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/src/vendor/myclabs/deep-copy" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter id="e85977b5-6549-462a-89ae-9892c51b3ee9" name="mptemplate-www:latest" home="docker://DATA" auto="false" debugger_id="php.debugger.XDebug">
-        <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_IMAGE_NAME="mptemplate-www:latest" DOCKER_REMOTE_PROJECT_PATH="/opt/project" />
+      <interpreter id="7b13e89a-b454-4d81-af3a-21a31fe51229" name="mpt" home="docker-compose://DATA" auto="false" debugger_id="php.debugger.XDebug">
+        <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_COMPOSE_SERVICE_NAME="mpt" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
+          <type_data command="EXEC" />
+          <dockerComposeConfigurationPaths>
+            <item value="$PROJECT_DIR$/docker-compose.yml" />
+          </dockerComposeConfigurationPaths>
+          <envs />
+        </remote_data>
       </interpreter>
     </interpreters>
   </component>
   <component name="PhpInterpretersPhpInfoCache">
     <phpInfoCache>
-      <interpreter name="mptemplate-www:latest">
-        <phpinfo binary_type="PHP" php_cli="/usr/local/bin/php" path_separator=":" version="8.2.29">
-          <additional_php_ini>/usr/local/etc/php/conf.d/docker-php-ext-mysqli.ini, /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini, /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini, /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini, /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini, /usr/local/etc/php/conf.d/docker-php-ext-zip.ini</additional_php_ini>
+      <interpreter name="mpt">
+        <phpinfo binary_type="PHP" php_cli="/usr/local/bin/php" path_separator=":" version="8.4.15">
+          <additional_php_ini>/usr/local/etc/php/conf.d/docker-php-ext-ftp.ini, /usr/local/etc/php/conf.d/docker-php-ext-gd.ini, /usr/local/etc/php/conf.d/docker-php-ext-mysqli.ini, /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini, /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini, /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini, /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini, /usr/local/etc/php/conf.d/docker-php-ext-zip.ini</additional_php_ini>
           <configuration_file />
           <configuration_options>
             <configuration_option name="include_path" value=".:/usr/local/lib/php" />
           </configuration_options>
           <debuggers>
-            <debugger_info debugger="xdebug" debugger_version="3.4.4">
+            <debugger_info debugger="xdebug" debugger_version="3.4.7">
               <debug_extensions />
             </debugger_info>
           </debuggers>
@@ -60,6 +81,8 @@
             <extension name="dom" />
             <extension name="fileinfo" />
             <extension name="filter" />
+            <extension name="ftp" />
+            <extension name="gd" />
             <extension name="hash" />
             <extension name="iconv" />
             <extension name="json" />

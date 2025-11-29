@@ -1,5 +1,6 @@
 mysqldata/
 vendor/
+.idea/
 
 src/*.ini
 src/config.dev.ini
