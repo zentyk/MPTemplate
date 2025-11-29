@@ -5,3 +5,7 @@ RewriteRule ^/?$ "https\:\/\/siteqr\.me\/" [R=301,L]
 <Files "config.ini">
     Require all denied
 </Files>
+
+<Files "php.ini">
+    Require all denied
+</Files>

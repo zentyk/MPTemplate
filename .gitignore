@@ -1,7 +1,11 @@
 mysqldata/
 vendor/
-
-*.ini
-*.*.ini
-src/*.*.ini
+db/
 src/*.ini
+src/config.dev.ini
+src/config.qa.ini
+src/config.ini
+
+src/phpstorm_debug.php
+src/phpstorm_debug_validator.phar
+src/phpstorm_index.php
